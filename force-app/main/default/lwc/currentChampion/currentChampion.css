@@ -1,0 +1,106 @@
+:host {
+    --bright-orange: #FF8C00;
+    --bright-light-orange: #FFE4B5;
+    --bright-light-orange-light: #FFF4E0;
+    --card-bg-light: linear-gradient(135deg, #FFF4E0, #ffffff);
+}
+
+.custom-champion-card {
+    --sds-c-card-color-background: var(--card-bg-light);
+    --sds-c-card-border-color: var(--bright-light-orange);
+    --sds-c-card-shadow: 0 4px 12px rgba(255, 140, 0, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.card-title {
+    color: var(--bright-orange);
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: 0.5px;
+    padding: 4px 0;
+}
+
+.logo-wrapper {
+    background: var(--bright-light-orange);
+    border-radius: 50%;
+    padding: 4px;
+    box-shadow: 0 2px 8px rgba(255, 140, 0, 0.2);
+    transition: transform 0.2s ease;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-wrapper:hover {
+    transform: scale(1.05);
+}
+
+.team-logo {
+    border-radius: 50%;
+    border: 2px solid var(--bright-orange);
+    object-fit: contain;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.initials-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--bright-light-orange);
+    font-weight: 700;
+    font-size: 1.8rem;
+    font-family: 'Arial', sans-serif;
+    background-color: #fffaf0;
+    color: var(--bright-orange);
+}
+
+.team-name {
+    color: var(--bright-orange);
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin: 0 0 4px 0;
+    line-height: 1.2;
+}
+
+.league-info,
+.season-info {
+    color: #4a3b2a;
+    margin: 2px 0;
+}
+
+.league-info strong,
+.season-info strong {
+    color: var(--bright-orange);
+}
+
+.no-champion {
+    padding: 20px 0;
+    text-align: center;
+    color: #666;
+}
+
+@media (max-width: 480px) {
+    .team-name {
+        font-size: 1.2rem;
+    }
+    .logo-wrapper {
+        width: 60px;
+        height: 60px;
+        padding: 3px;
+    }
+    .initials-circle {
+        font-size: 1.2rem;
+    }
+    .team-logo {
+        width: 60px;
+        height: 60px;
+    }
+}

@@ -1,0 +1,50 @@
+<template>
+    <div style="font-family: Arial, sans-serif; max-width: 500px; margin: 0 auto;">
+        
+        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+            <span style="font-size: 1.5rem; font-weight: 700; color: #ffffff;">Birthday Perks</span>
+        </div>
+
+        <div style="background-color: #0d1b2a; border-radius: 1.25rem; padding: 1.5rem; border: 1px solid #1e2d42; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
+            
+            <template if:true={isBirthdayToday}>
+                <div style="text-align: center;">
+                    <div style="font-size: 1.5rem; font-weight: 700; color: #ffffff; margin-bottom: 1rem;">🎉 Happy Birthday, {fanName}!</div>
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; color: #b0b8c5; font-size: 1rem; margin: 0.5rem 0;">
+                        <span>+{bonusPoints} loyalty points awarded!</span>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; color: #b0b8c5; font-size: 1rem; margin: 0.5rem 0;">
+                        <span>New balance: <strong style="color: #ffffff;">{pointsBalance}</strong> points</span>
+                    </div>
+                </div>
+            </template>
+
+            <template if:false={isBirthdayToday}>
+                <div style="text-align: left;">
+                    <div style="background-color: rgba(255, 255, 255, 0.05); border-radius: 0.75rem; padding: 1.25rem; text-align: center; margin-bottom: 1rem;">
+                        <span style="display: block; font-size: 3rem; font-weight: 800; color: #1a73e8; line-height: 1;">{daysUntilNext}</span>
+                        <span style="font-size: 0.8rem; color: #6b7a8f; text-transform: uppercase; letter-spacing: 0.5px;">days until your special day</span>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 0.5rem; color: #b0b8c5; font-size: 1rem; background-color: rgba(255, 255, 255, 0.05); padding: 0.5rem 0.75rem; border-radius: 0.5rem; margin-bottom: 1rem;">
+                        <span>You'll receive <strong style="color: #ffffff;">{bonusPoints} bonus points</strong> automatically</span>
+                    </div>
+
+                    <div style="margin-top: 0.5rem;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: #6b7a8f; margin-bottom: 0.3rem;">
+                            <span>Next tier progress</span>
+                            <span style="font-weight: 700; color: #ffffff;">{progressPercent}%</span>
+                        </div>
+                        <div style="background-color: rgba(255, 255, 255, 0.15); border-radius: 0.5rem; height: 6px; overflow: hidden;">
+                            <div class="progress-fill" id="progressFill" style="height: 100%; border-radius: 0.5rem; background: #1a73e8; width: 0%; transition: width 0.8s ease;"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: #6b7a8f; margin-top: 0.3rem;">
+                            <span>{lifetimePoints} lifetime points</span>
+                            <span>Current tier: <strong style="color: #ffffff;">{currentTier}</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,139 @@
+.container {
+    margin: 0;
+}
+
+.widget-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+}
+
+.header-icon {
+    --lwc-square-iconUtility: 1.5rem;
+    color: #a094ff;
+}
+
+.widget-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.card {
+    background: #0d1b2a;
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    min-height: 200px;
+}
+
+.celebration-content {
+    text-align: center;
+}
+
+.celebration-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.bonus-info, .balance-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: #b0b8c5;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+.bonus-info strong, .balance-info strong {
+    color: #ffffff;
+}
+
+.countdown-block {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.days-number {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #1a73e8;
+    display: block;
+    line-height: 1;
+}
+
+.days-label {
+    font-size: 0.8rem;
+    color: #6b7a8f;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-block {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #b0b8c5;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.info-block strong {
+    color: #ffffff;
+}
+
+.progress-section {
+    margin-top: 0.5rem;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #6b7a8f;
+    margin-bottom: 0.3rem;
+}
+
+.percent {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.progress-track {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 0.5rem;
+    height: 6px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 0.5rem;
+    background: #1a73e8;
+    transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: 0%;
+}
+
+.progress-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: #6b7a8f;
+    margin-top: 0.3rem;
+}
+
+.progress-footer strong {
+    color: #ffffff;
+}

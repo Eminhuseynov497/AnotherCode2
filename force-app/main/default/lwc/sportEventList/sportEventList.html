@@ -1,0 +1,91 @@
+<template>
+    <div class="component-wrapper">
+        <lightning-card>
+            <div class="slds-grid slds-grid_align-spread slds-p-horizontal_medium slds-p-vertical_small header-bg">
+                <h2 class="slds-text-heading_medium slds-m-top_xx-small custom-title">
+                    <lightning-icon icon-name="standard:event" size="small" class="slds-m-right_x-small"></lightning-icon>
+                    Upcoming Matches
+                </h2>
+                <lightning-button label="+ Create Event" variant="brand" onclick={handleCreateEvent} class="create-btn"></lightning-button>
+            </div>
+
+            <div class="slds-p-around_medium">
+                <template if:true={isLoading}>
+                    <div class="slds-is-relative slds-text-align_center slds-p-vertical_large">
+                        <lightning-spinner alternative-text="Loading..." size="medium"></lightning-spinner>
+                    </div>
+                </template>
+
+                <template if:true={error}>
+                    <div class="slds-text-color_error slds-p-around_medium">Error: {error.body.message}</div>
+                </template>
+
+                <template if:true={hasEvents}>
+                    <div class="events-grid">
+                        <template for:each={events} for:item="event">
+                            <div key={event.Id} class="event-card" style="--status-color: {event.statusColor};">
+                                <div class="event-status-bar"></div>
+                                
+                                <div class="slds-card__body slds-p-horizontal_small slds-p-vertical_medium">
+                                    <div class="teams-container">
+                                        <div class="team">
+                                            <img if:true={event.homeLogo} src={event.homeLogo} class="team-logo" alt={event.homeTeam}/>
+                                            <span class="team-name">{event.homeTeam}</span>
+                                        </div>
+                                        <div class="vs-badge">VS</div>
+                                        <div class="team">
+                                            <img if:true={event.awayLogo} src={event.awayLogo} class="team-logo" alt={event.awayTeam}/>
+                                            <span class="team-name">{event.awayTeam}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="event-info">
+                                        <div class="info-item">
+                                            <lightning-icon icon-name="standard:date_time" size="x-small"></lightning-icon>
+                                            <span>{event.eventDate} at {event.eventTime}</span>
+                                        </div>
+                                        <div class="info-item">
+                                            <lightning-icon icon-name="standard:location" size="x-small"></lightning-icon>
+                                            <span>{event.stadiumName}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="progress-section">
+                                        <div class="slds-grid slds-grid_align-spread slds-m-bottom_xx-small">
+                                            <span class="slds-text-body_small">Tickets sold</span>
+                                            <span class="slds-text-body_small bold">{event.Tickets_Sold__c} / {event.Total_Tickets__c}</span>
+                                        </div>
+                                        <div class="slds-progress-bar slds-progress-bar_circuit" 
+                                             aria-valuemin="0" aria-valuemax="100" 
+                                             aria-valuenow={event.soldPercent}
+                                             style="--progress-width: {event.soldPercent}%;">
+                                            <div class="slds-progress-bar__value custom-progress">
+                                                <span class="slds-assistive-text">Sold {event.soldPercent}%</span>
+                                            </div>
+                                        </div>
+                                        <div class="sold-percent">{event.soldPercent}% sold</div>
+                                    </div>
+
+                                    <div class="slds-grid slds-grid_align-spread slds-m-top_medium">
+                                        <lightning-badge label={event.badgeLabel} variant={event.badgeVariant}></lightning-badge>
+                                        <lightning-button variant="brand" label="Buy Ticket" 
+                                                          onclick={navigateToEvent} data-id={event.Id}
+                                                          class="buy-btn"></lightning-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+
+                <template if:false={hasEvents}>
+                    <div class="slds-box slds-text-align_center slds-m-vertical_medium empty-state">
+                        <lightning-icon icon-name="utility:info" variant="warning" size="medium"></lightning-icon>
+                        <p class="slds-m-top_small">No events found for this sport.</p>
+                        <lightning-button label="Create First Event" variant="brand" onclick={handleCreateEvent} class="slds-m-top_medium"></lightning-button>
+                    </div>
+                </template>
+            </div>
+        </lightning-card>
+    </div>
+</template>
